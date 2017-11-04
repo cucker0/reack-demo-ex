@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo06-2</title>
+    <script src="../jq/react.min.js"></script>
+    <script src="../jq/react-dom.min.js"></script>
+    <script src="../jq/babel.min.js"></script>
+
+</head>
+<body>
+    <div id="tag"></div>
+    <script type="text/babel">
+        class MyTitle extends React.Component{
+            getDefaultProps : {
+                title: 'Hello World!!!!!';
+            }
+
+
+            render(){
+                return <h1>{this.props.title}</h1>;
+            }
+
+        }
+
+
+        ReactDOM.render(
+            <MyTitle />,
+            document.body
+        )
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo04</title>
+    <!--<script src="../build/react.js"></script>-->
+    <!--<script src="../build/react-dom.js"></script>-->
+    <!--<script src="../build/browser.min.js"></script>-->
+
+    <script src="../jq/react.min.js"></script>
+    <script src="../jq/react-dom.min.js"></script>
+    <script src="../jq/babel.min.js"></script>
+
+</head>
+<body>
+    <div id="tag"></div>
+    <script type="text/babel">
+        //ES5
+    //        var HelloMessage = React.createClass({
+    //            render: function() {
+    //                return <h1>Hello {this.props.name}</h1>;
+    //            }
+    //        });
+
+        //ES6
+        class HelloMessage2 extends React.Component{
+            constructor(props) {        //构造函数，可不写
+                super(props);
+                // Set up initial state
+                this.state = {
+                    text: props.initialValue || 'placeholder'
+                };
+
+                // Functions must be bound manually with ES6 classes
+                this.handleChange = this.handleChange.bind(this);
+            }
+
+            handleChange(event) {       //可不写
+                this.setState({
+                    text: event.target.value
+                });
+             }
+
+            render() {
+                return (
+                    <h1>Hello boy: {this.props.name}</h1>
+                 );
+            }
+        }
+
+        ReactDOM.render(
+                <HelloMessage2 name="John"/>,
+                document.getElementById("tag")
+        );
+
+    </script>
+</body>
+</html>

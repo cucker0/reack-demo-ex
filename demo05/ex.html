@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo05</title>
+    <script src="../jq/react.min.js"></script>
+    <script src="../jq/react-dom.min.js"></script>
+    <script src="../jq/babel.min.js"></script>
+
+</head>
+<body>
+    <div id="tag"></div>
+    <script type="text/babel">
+        class NotesList extends React.Component{
+            render(){
+                return (
+                        <ol>
+                        {
+                            React.Children.map(this.props.children, function(child, index){
+                                return <li index={index}>{child}</li>
+                            })
+                        }
+                        </ol>
+                )
+            }
+        }
+
+        ReactDOM.render(
+                <NotesList>
+                    <span>hello</span>
+                    <span>world</span>
+                </NotesList>,
+                document.body
+        )
+
+    </script>
+</body>
+</html>
